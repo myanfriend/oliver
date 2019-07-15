@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!--一定要注意该文件的格式-->
+<mapper namespace="SSM.mapper.MessageMapper">
+
+	<insert id="submitMessage" >
+	INSERT INTO message(m_message)VALUES(#{param1});
+	</insert>
+	
+	
+
+     <select id="backMessages" resultMap="myEmp">
+		select m_num,m_name,m_house,m_message from message
+	</select>
+
+
+	<resultMap type="SSM.beans.Message"
+		id="myEmp">
+		<result column="m_num" property="num" />
+		<result column="m_message" property="message" />
+		<result column="m_name" property="name" />
+		<result column="m_house" property="house" />
+	</resultMap>
+
+</mapper>

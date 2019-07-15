@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!--一定要注意该文件的格式-->
+<mapper namespace="SSM.mapper.AdministeredMapper">
+
+	<select id="askAdministered" resultMap="myEmp">
+		select a_id,a_code,a_address from administered where a_code=#{param1} and a_password=#{param2}
+	</select>
+    
+    
+    <select id="getAllCustomers" resultMap="Emp">
+		select * from customer where c_user_id=#{param1}
+	</select>
+	<insert id="registerAdmin" >
+	insert into administered(a_code,a_password,a_address) values(#{param1},#{param2},#{param3});
+	</insert>
+
+
+	<resultMap type="SSM.beans.Administered"
+		id="myEmp">
+		<result column="a_id" property="id" />
+		<result column="a_code" property="code" />
+		<result column="a_address" property="address" />
+	</resultMap>
+	<resultMap type="SSM.beans.Customer"
+		id="Emp">
+		<result column="c_user_id" property="user_id" />
+		<result column="c_code" property="code" />
+		<result column="c_password" property="password" />
+		<result column="c_name" property="name" />
+		<result column="c_industry" property="industry" />
+		<result column="c_phone" property="phone" />
+		<result column="c_id" property="id" />
+		<result column="c_housenumber" property="houseNumber" />
+		<result column="c_linkman" property="linkman" />
+		<result column="c_linkphone" property="linkphone" />
+		<result column="c_sex" property="sex" />
+		<result column="c_idcardnum" property="idcardnum" />
+		<result column="c_address" property="address" />
+	</resultMap>
+
+</mapper>

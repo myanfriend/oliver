@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!--一定要注意该文件的格式-->
+<mapper namespace="SSM.mapper.ListMapper">
+
+	<select id="getallList" resultMap="myEmp">
+		select * from list where l_user_id=#{param1} 
+	</select>
+	<select id="getList" resultMap="Emp">
+		select * from list where l_name=#{param1}
+	</select>
+
+	<resultMap type="SSM.beans.Paylist"
+		id="myEmp">
+		<result column="l_id" property="id" />
+		<result column="l_user_id" property="user_id" />
+		<result column="l_house" property="house" />
+		<result column="l_name" property="name" />
+		<result column="l_year" property="year" />
+		<result column="l_month" property="month" />
+		<result column="l_deposit" property="deposit" />
+		<result column="l_deposit_status" property="deposit_status" />
+		<result column="l_rent" property="rent" />
+		<result column="l_waterpay" property="waterpay" />
+		<result column="l_sum" property="sum" />
+		<result column="l_ifpay" property="ifpay" />
+	</resultMap>
+     <resultMap type="SSM.beans.Paylist"
+		id="Emp">
+		<result column="l_id" property="id" />
+		<result column="l_user_id" property="user_id" />
+		<result column="l_house" property="house" />
+		<result column="l_name" property="name" />
+		<result column="l_year" property="year" />
+		<result column="l_month" property="month" />
+		<result column="l_deposit" property="deposit" />
+		<result column="l_deposit_status" property="deposit_status" />
+		<result column="l_rent" property="rent" />
+		<result column="l_waterpay" property="waterpay" />
+		<result column="l_sum" property="sum" />
+		<result column="l_ifpay" property="ifpay" />
+	</resultMap>
+</mapper>

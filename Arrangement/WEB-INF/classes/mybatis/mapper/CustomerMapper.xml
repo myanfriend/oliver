@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!--一定要注意该文件的格式-->
+<mapper namespace="SSM.mapper.CustomerMapper">
+
+	<select id="askcustomer" resultMap="myEmp">
+		select c_name,c_code,c_password from customer where c_code=#{param1} and c_password=#{param2}
+	</select>
+
+	<resultMap type="SSM.beans.Customer"
+		id="myEmp">
+		<result column="c_name" property="name" />
+		<result column="c_code" property="code" />
+		<result column="c_password" property="password" />
+		
+	</resultMap>
+
+</mapper>

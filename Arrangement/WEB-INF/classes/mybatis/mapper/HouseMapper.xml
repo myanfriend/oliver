@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!--一定要注意该文件的格式-->
+<mapper namespace="SSM.mapper.HouseMapper">
+
+	<select id="getAllhouse" resultMap="myEmp">
+		select * from house
+	</select>
+	<select id="getmyAllhouse" resultMap="Emp">
+		select * from house where h_user_id=#{param1}
+	</select>
+
+	<resultMap type="SSM.beans.House"
+		id="myEmp">
+		<result column="h_id" property="id" />
+		<result column="h_status" property="status" />
+		<result column="h_describe" property="describe" />
+		<result column="h_address" property="address" />
+
+		
+	</resultMap>
+	<resultMap type="SSM.beans.House"
+		id="Emp">
+		<result column="h_id" property="id" />
+		<result column="h_status" property="status" />
+		<result column="h_describe" property="describe" />
+		<result column="h_phone" property="phone" />
+		<result column="h_address" property="address" />
+	</resultMap>
+
+</mapper>

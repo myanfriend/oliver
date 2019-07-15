@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!--一定要注意该文件的格式-->
+<mapper namespace="SSM.mapper.WaterAndEleMapper">
+
+	<select id="findAllWaterAndEle" resultMap="myEmp">
+		SELECT w_house,w_name,w_year,w_month,w_water_value,w_water_pervalue,w_ele_value,w_ele_pervalue,w_gas_value,w_gas_pervalue FROM waterandelesum
+		WHERE w_house=#{param1} AND w_year=#{param2} AND w_month=#{param3}
+	</select>
+
+    <select id="getWaterAndEles" resultMap="Emp">
+		SELECT * FROM waterandelesum
+	</select>
+	
+	<resultMap type="SSM.beans.WaterAndEle"
+		id="Emp">
+	    <result column="w_house" property="house" />
+		<result column="w_name" property="name" />
+		<result column="w_year" property="year" />
+		<result column="w_month" property="month" />
+		<result column="w_water_value" property="water_value" />
+		<result column="w_water_pervalue" property="water_perval" />
+		<result column="w_ele_value" property="ele_value" />
+		<result column="w_ele_pervalue" property="ele_perval" />
+		<result column="w_gas_value" property="gas_value" />
+		<result column="w_gas_pervalue" property="gas_perval" />
+		
+	</resultMap>
+
+	<resultMap type="SSM.beans.WaterAndEle"
+		id="myEmp">
+	    <result column="w_house" property="house" />
+		<result column="w_name" property="name" />
+		<result column="w_year" property="year" />
+		<result column="w_month" property="month" />
+		<result column="w_water_value" property="water_value" />
+		<result column="w_water_pervalue" property="water_perval" />
+		<result column="w_ele_value" property="ele_value" />
+		<result column="w_ele_pervalue" property="ele_perval" />
+		<result column="w_gas_value" property="gas_value" />
+		<result column="w_gas_pervalue" property="gas_perval" />
+		
+	</resultMap>
+
+</mapper>
